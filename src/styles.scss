@@ -1,0 +1,21 @@
+@import './app/shared/theme.scss';
+body, html{
+  margin: 0 !important;
+  color: $secondaryColor;
+  background-color: $altColor;
+}
+.xs-cols{
+  width: $fullWidth;
+}
+.sm-cols{
+  width: $fullWidth
+}
+.md-cols{
+  width: $halfWidth;
+}
+.lg-cols{
+  width: $thirdWidth;
+}
+.xl-cols{
+  width: $quarterWidth;
+}
