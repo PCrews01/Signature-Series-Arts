@@ -4,18 +4,30 @@ body, html{
   color: $secondaryColor;
   background-color: $altColor;
 }
-.xs-cols{
-  width: $fullWidth;
+
+.xs-cols{width: $fullWidth;}
+.sm-cols{width: $fullWidth}
+.md-cols{width: $halfWidth;}
+.lg-cols{width: $thirdWidth;}
+.xl-cols{width: $quarterWidth;}
+
+.fixed-back{
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  & p{
+  font-family: $mainFont;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  bottom: 0;
+  text-align: center;
+  margin: 0 auto;
+  text-shadow: 10px 8px 11px rebeccapurple;
+  font-size: 10vw;
+  color: whitesmoke;
 }
-.sm-cols{
-  width: $fullWidth
-}
-.md-cols{
-  width: $halfWidth;
-}
-.lg-cols{
-  width: $thirdWidth;
-}
-.xl-cols{
-  width: $quarterWidth;
 }

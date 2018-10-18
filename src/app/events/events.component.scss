@@ -6,10 +6,31 @@
   font-size: 25px;
 }
 .event-p{
-  background-image: url('../../assets/imgs/events_2.jpg');
-  min-height: 100vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  background-image: url('../../assets/imgs/events.jpg');
+}
+.tile-image{
+  height: $fullWidth;
+  width: $fullWidth;
+  &:hover{
+    height: $fullWidth + 20;
+    width: $fullWidth + 20;
+    opacity: 0.45;
+  }
+}
+.btn-dft{
+  background: rebeccapurple;
+  color: $secondaryColor;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  width: 40%;
+  &:hover{
+    box-shadow: 2px 3px 5px rgba(255, 255, 255, 0.25);
+    height: 55px;
+    width: 41%;
+    cursor: pointer;
+  }
 }

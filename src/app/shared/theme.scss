@@ -1,4 +1,12 @@
+@mixin fonts($fontfamily, $fontfile){
+  @font-face {
+    font-family: 'Mrs Saint Delafield';
+    src: url($fontfile + '.ttf') format('truetype');
+  }
+}
+@include fonts('Mrs Saint Delafield', '/assets/fonts/MrsSaintDelafield');
 
+$mainFont: 'Mrs Saint Delafield';
 $fullWidth: 100%;
 $halfWidth: $fullWidth / 2;
 $thirdWidth: $fullWidth / 3;

@@ -1,0 +1,16 @@
+{
+  "event-subs" : [ {
+    "aFacebook" : "",
+    "aInstagram" : "",
+    "aSoundcloud" : "",
+    "aTwitter" : "",
+    "aYoutube" : "",
+    "email" : "",
+    "myName" : "",
+    "performerName" : "",
+    "poc" : "",
+    "pocEmail" : "",
+    "pocPhone" : "",
+    "pocTitle" : ""
+  } ]
+}

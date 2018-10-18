@@ -10,6 +10,13 @@ import { EventsComponent } from './events/events.component';
 
 import { MaterialModule } from './shared/modules/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AlmanacComponent } from './almanac/almanac.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ShowNamePipe } from './shared/pipes/show-name.pipe';
+import { ApiService } from './shared/api.service';
+import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BeyondComponent } from './beyond/beyond.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,16 +29,22 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
-    EventsComponent
+    EventsComponent,
+    AlmanacComponent,
+    ContactsComponent,
+    ShowNamePipe,
+    BeyondComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
+    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ApiService, HttpModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

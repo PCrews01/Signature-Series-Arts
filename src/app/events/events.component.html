@@ -1,28 +1,15 @@
 
 <div class="event-body">
-  <div class="event-p"></div>
-  <p>
-    events works!
-  </p>
-  <p>
-    events works!
-  </p>
-  <p>
-    events works!
-  </p>
-  <p>
-    events works!
-  </p>
-  <p>
-    events works!
-  </p>
-  <p>
-    events works!
-  </p>
-  <p>
-    events works!
-  </p>
-  <p>
-    events works!
-  </p>
+  <div class="event-p fixed-back">
+    <p>{{title}}</p>
+  </div>
+  <mat-grid-list [cols]="cols" [rowHeight]="rowHeight">
+    <mat-grid-tile *ngFor="let event of events; let i = index">
+      <img src="../../assets/shows/{{ event.name | showName | lowercase }}/images/flyer.jpg"
+            class="tile-image" />
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="columns(cols)" *ngIf="seeMore">
+      <button class="btn btn-dft" routerLink="/events">See More...</button>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

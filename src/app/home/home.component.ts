@@ -12,15 +12,19 @@ export class HomeComponent implements OnInit {
   cols: number;
   rowHeight: number;
   columnSize: string;
-  screenSize = [ 'xs', 'sm', 'md', 'lg', 'xl'];
+  smCols: number;
+  screenSize = [ 'sz', 'xs', 'sm', 'md', 'lg', 'xl'];
   isShowing = true;
+  seeMore = true;
   mMatch: MediaQueryList = matchMedia(`(max-width: ${ screen }px)`);
-  constructor(private _zone: NgZone, private _oMedia: ObservableMedia) {
+  constructor(private _zone: NgZone,
+              private _oMedia: ObservableMedia) {
     this.mMatch.addListener(m => _zone.run(() => this.mMatch = m));
     _oMedia.asObservable().subscribe((mChange: MediaChange) => {
           this.cols = this.screenSize.indexOf(mChange.mqAlias) ;
-          this.rowHeight = this.screenSize.indexOf(mChange.mqAlias) * 150;
+          this.rowHeight = (this.screenSize.indexOf(mChange.mqAlias) + 1 ) * 150;
           this.columnSize = mChange.mqAlias + '-cols';
+          console.log(`Row Height: ${this.rowHeight} and this is cols: ${this.cols}`);
     });
    }
 
