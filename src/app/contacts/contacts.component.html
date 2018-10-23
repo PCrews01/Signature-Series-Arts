@@ -1,4 +1,241 @@
 <div class="fixed-back contact"></div>
-<p>
-  contacts works!
-</p>
+<mat-grid-list class="contact-grid" [cols]="cols" rowHeight="1500px">
+  <mat-grid-tile>
+    <mat-grid-tile-header>
+      <h1 class="header form-header">Artist Submission</h1>
+    </mat-grid-tile-header>
+
+      <form class="form-container"
+            (submit)='onSubmit("artist")'
+            [formGroup]='artistForm'
+            *ngIf="artistSubmission"
+            novalidate>
+
+    <div class="form-group">
+      <mat-form-field style="width:100%">
+        <input matInput placeholder="Artist's Name" formControlName="artist_name" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Stage Name" formControlName="stage_name" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Artist Email" formControlName="artist_email" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Person of Contact" formControlName="person_of_contact" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Contact Email" formControlName="contact_email" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Contact Phone" formControlName="contact_phone" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Contact Email" formControlName="contact_email" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Contact Title" formControlName="contact_title" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Youtube Name" formControlName="youtube_channel" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Soundcloud Link" formControlName="soundcloud_link">
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Twitter Handle" formControlName="twitter_handle">
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Facebook Link" formControlName="facebook_page">
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Instagram Handle" formControlName="instagram_handle">
+      </mat-form-field>
+      </div>
+
+    <div class='form-group text-center submitters'>
+        <button mat-raised-button class='btn btn-dft btn-half' type='submit' [disabled]='!artistForm.valid'>Submit</button>
+        <button mat-raised-button class='btn btn-crazy btn-half' type='button' [disabled]='artistForm.pristine' (click)='onReset()'>Reset</button>
+    </div>
+  </form>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-grid-tile-header>
+      <h1 class="header form-header">Sponsor Submission</h1>
+    </mat-grid-tile-header>
+    <form class="form-container"
+            (submit)='onSubmit("sponsor")'
+            [formGroup]='sponsorForm'
+            *ngIf="sponsorSubmission"
+            novalidate>
+
+      <div class="form-group">
+        <mat-form-field style="width:100%">
+          <input matInput placeholder="Company Name" formControlName="company_name" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Business Type" formControlName="business_type" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Contact Name" formControlName="contact_name" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Contact Email" formControlName="contact_email" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Contact Phone" formControlName="contact_phone" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+        <input matInput placeholder="Contact Title" formControlName="contact_title" required>
+      </mat-form-field>
+      </div>
+
+      <div class="form-group top-ten">
+        <button type="button" mat-raised-button class="btn btn-blu btn-full" (click)="showMedia('company')">Add Social Media?</button>
+      </div>
+
+      <div *ngIf="addCompanySocialMedia">
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Twitter Handle" formControlName="company_twitter_handle">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Facebook Link" formControlName="company_facebook_page">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Instagram Handle" formControlName="company_instagram_handle">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class='form-group text-center submitters'>
+        <button mat-raised-button class='btn btn-dft btn-half' type='submit' [disabled]='!sponsorForm.valid'>Submit</button>
+        <button mat-raised-button class='btn btn-crazy btn-half' type='button' [disabled]='sponsorForm.pristine' (click)='onReset()'>Reset</button>
+      </div>
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-grid-tile-header>
+      <h1 class="header form-header">General Message</h1>
+    </mat-grid-tile-header>
+    <form class="form-container" (submit)="onSubmit('general')" [formGroup]="generalForm" *ngIf="generalSubmission" novalidate>
+
+      <div class="form-group">
+        <mat-form-field style="width:100%">
+          <input matInput placeholder="Your Name" formControlName="sender_name" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Your Email" formControlName="sender_email" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Your Phone" formControlName="sender_phone" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Subject" formControlName="message_subject" required>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <label>Message</label>
+          <textarea matInput formControlName="message_body" required></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <button type="button" mat-button class="btn btn-blu btn-full" (click)="showMedia('general')">Add Social Media?</button>
+      </div>
+
+      <div *ngIf="addMySocialMedia">
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Twitter Handle" formControlName="sender_twitter_handle">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Facebook Link" formControlName="sender_facebook_page">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Instagram Handle" formControlName="sender_instagram_handle">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class='form-group text-center submitters'>
+        <button mat-raised-button class='btn btn-dft btn-half' type='submit' [disabled]='!generalForm.valid'>Submit</button>
+        <button mat-raised-button class='btn btn-crazy btn-half' type='button' [disabled]='generalForm.pristine' (click)='onReset()'>Reset</button>
+      </div>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,3 +1,62 @@
+@import '../shared/theme.scss';
 .contact{
   background-image: url('../../assets/imgs/contact.jpg');
+}
+.form-container {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  color: white;
+  width: 90%;
+  border: 1px inset $mainColor;
+  top: 60px;
+  margin: 0 auto;
+  text-align: center;
+  & input{
+    color: white;
+    width: 90%;
+    height: 50px;
+  }
+  & > * {
+    color: white;
+    width: 100%;
+  }
+  & button{
+    border-radius: 0;
+  }
+}
+h1{
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+.submitters{
+  margin-top: 25px;
+}
+.contact-grid {
+  &::ng-deep.mat-form-field-appearance-legacy .mat-form-field-label{
+    color: white;
+  }
+  &::ng-deep.mat-grid-tile .mat-figure{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &::ng-deep.mat-form-field{
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  &::ng-deep.mat-grid-tile-header {
+    font-size: $tileHeader / 2;
+  }
+  textarea{
+    min-height: 200px
+  }
+  &::ng-deep.mat-form-field-flex{
+    display: inherit;
+  }
+  &::ng-deep.mat-form-field-infix{
+    width: 100%;
+  }
 }

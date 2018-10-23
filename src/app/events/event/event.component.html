@@ -1,0 +1,19 @@
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <img src="../../../assets/shows/{{ concert.name | showName | lowercase }}/images/flyer.jpg" class="event-image" />
+  </mat-grid-tile>
+  <mat-grid-tile class="data-tile" *ngIf="concert.category === 'ssa'" style="display:grid">
+    <h1 class="event-header">{{concert.name}}</h1>
+    <p style="width:100%">{{ concert.theme }}</p>
+    <p>{{ concert.production }}</p>
+    <div class="performer-cards">
+      <span class="performer-pics" *ngFor="let performer of concert.performers">
+        <img src="../../../assets/shows/{{concert.name | showName | lowercase}}/images/{{concert.name | acronym  }}-{{performer | showName | lowercase}}.jpg"
+        onError="this.src='../../../assets/imgs/no_image.png'" class="card-image">
+      </span>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="concert.category === 'promotion'">
+    <h1 class="event-header">{{ concert.name }}</h1>
+  </mat-grid-tile>
+</mat-grid-list>

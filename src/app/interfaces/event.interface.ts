@@ -1,4 +1,4 @@
-export interface Showcase {
+export interface Concert {
         id: number;
         name: string;
         category: string;

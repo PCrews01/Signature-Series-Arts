@@ -4,3 +4,28 @@
   position: relative;
   background-image: url('../../assets/imgs/beyond.jpg');
 }
+.beyond-artist-image{
+  background-image: url('../../assets/imgs/beyond/atson.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.beyond-title{
+  font-family: $mainFont;
+  text-align: center;
+  font-size: $tileHeader;
+}
+.see-more{
+  height: inherit;
+}
+.button-back{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  height: 55px;
+  text-align: center;
+}
+.beyond-interview{
+  height: 90%;
+}

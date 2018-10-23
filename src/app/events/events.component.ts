@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { ApiService } from '../shared/api.service';
 import { Router } from '@angular/router';
-import { Showcase } from '../interfaces/event.interface';
+import { Concert } from '../interfaces/event.interface';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 
 @Component({
@@ -11,7 +11,7 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 })
 export class EventsComponent implements OnInit {
   title = 'Events';
-  events: Showcase[] = [];
+  events: Concert[] = [];
   cols: number;
   smCols: number;
   rowHeight: number;
@@ -26,7 +26,7 @@ export class EventsComponent implements OnInit {
     this.mMatch.addListener(m => _zone.run(() => this.mMatch = m));
     _oMedia.asObservable().subscribe((mChange: MediaChange) => {
           this.cols = this.screenSize.indexOf(mChange.mqAlias) ;
-          this.rowHeight = (this.screenSize.indexOf(mChange.mqAlias) + 1 ) * 150;
+          this.rowHeight = (this.screenSize.indexOf(mChange.mqAlias) + 1 ) * 100;
           this.columnSize = mChange.mqAlias + '-cols';
     });
    }

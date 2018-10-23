@@ -3,6 +3,21 @@
     {{title}}
   </p>
 </div>
-<p>
-  beyond works!
-</p>
+<mat-grid-list [cols]="columns()" [rowHeight]="rowHeight">
+  <mat-grid-tile class="beyond-artist-image">
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="beyond-interview">
+      <div class="question" *ngFor="let artist of beyond">
+        <i class="beyond-title">{{ artist.name }}, Beyond The Stage</i>
+        <div *ngFor="let q of artist.questions; let i=index">
+          <p style="color: rebeccapurple"><b>{{q}}</b></p>
+          <p>{{artist.answers[i]}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="button-back" *ngIf="seeMore">
+      <button class="see-more btn btn-dft" [routerLink]="['/beyond']">See More...</button>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

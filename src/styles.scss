@@ -1,8 +1,10 @@
 @import './app/shared/theme.scss';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 body, html{
   margin: 0 !important;
   color: $secondaryColor;
   background-color: $altColor;
+  font-family: $secondaryFont;
 }
 
 .xs-cols{width: $fullWidth;}
@@ -11,6 +13,17 @@ body, html{
 .lg-cols{width: $thirdWidth;}
 .xl-cols{width: $quarterWidth;}
 
+.top-five{margin-top: $smallPx;}
+.top-ten{margin-top: $mediumPx;}
+.top-twenty{margin-top: $largePx;}
+
+.header{
+  width: $fullWidth;
+  font-size: $tileHeader;
+  font-family: $mainFont;
+  text-align: center;
+  font-weight: $flyWeight;
+}
 .fixed-back{
   min-height: 100vh;
   background-attachment: fixed;
@@ -26,8 +39,54 @@ body, html{
   bottom: 0;
   text-align: center;
   margin: 0 auto;
-  text-shadow: 10px 8px 11px rebeccapurple;
+  text-shadow: 10px 8px 11px $mainColor;
   font-size: 10vw;
   color: whitesmoke;
 }
 }
+.btn{
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  width: 40%;
+  &:hover{
+    background-color: darken($mainColor, 20%);
+    box-shadow: 2px 3px 5px rgba(255, 255, 255, 0.25);
+    height: 55px;
+    width: 41%;
+    cursor: pointer;
+  }
+}
+.btn-dft{
+  background: $mainColor;
+  color: $secondaryColor;
+}
+.btn-crazy{
+  background-color: $dangerColor;
+  color: $secondaryColor;
+  &:hover{
+    background-color: darken($dangerColor, 10%)
+  }
+}
+.btn-blu{
+  background: $bluColor;
+  color: $secondaryColor;
+  &:hover{
+    background-color: darken($bluColor, 10%)
+  }
+}
+.btn-full{
+  width: $fullWidth;
+  &:hover{
+    width: $fullWidth;
+  }
+}
+.btn-half{
+  width: $halfWidth;
+}
+::ng-deep.mat-grid-tile.mat-figure{
+  display: contents;
+}
+

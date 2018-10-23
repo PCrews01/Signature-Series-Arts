@@ -6,7 +6,8 @@
   <mat-grid-list [cols]="cols" [rowHeight]="rowHeight">
     <mat-grid-tile *ngFor="let event of events; let i = index">
       <img src="../../assets/shows/{{ event.name | showName | lowercase }}/images/flyer.jpg"
-            class="tile-image" />
+            class="tile-image"
+            routerLink="/event/{{event.id}}" />
     </mat-grid-tile>
     <mat-grid-tile [colspan]="columns(cols)" *ngIf="seeMore">
       <button class="btn btn-dft" routerLink="/events">See More...</button>

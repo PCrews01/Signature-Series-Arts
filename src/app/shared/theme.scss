@@ -7,6 +7,7 @@
 @include fonts('Mrs Saint Delafield', '/assets/fonts/MrsSaintDelafield');
 
 $mainFont: 'Mrs Saint Delafield';
+$secondaryFont: sans-serif;
 $fullWidth: 100%;
 $halfWidth: $fullWidth / 2;
 $thirdWidth: $fullWidth / 3;
@@ -16,3 +17,18 @@ $tenthWidth: $fullWidth / 5;
 $mainColor: rebeccapurple;
 $secondaryColor: white;
 $altColor: black;
+$dangerColor: #C12017;
+$bluColor: #4185ec;
+
+$sectionHeader: 10vw;
+$tileHeader: 5vw;
+
+$flyWeight: 100;
+$featherWeight: 200;
+$wealterWeight: 300;
+$heavyWeight: 500;
+$sumoWeight: bolder;
+
+$smallPx: 5px;
+$mediumPx: 10px;
+$largePx: 20px;

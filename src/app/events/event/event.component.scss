@@ -1,0 +1,21 @@
+@import '../../shared/theme.scss';
+.card-image{
+  width: $fullWidth;
+  height: $fullWidth;
+}
+::ng-deep.mat-grid-tile.mat-figure{
+    display: block !important;
+
+  }
+  .mat-grid-tile {
+    ::ng-deep {
+      figure{
+        display: grid;
+      }
+    }
+  }
+  .performer-pics{
+  width: 30%;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
