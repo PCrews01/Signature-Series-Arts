@@ -1,5 +1,12 @@
 @import '../shared/theme.scss';
+
+.contact-body{
+  height: auto;
+  background-color: black;
+  font-size: 25px;
+}
 .contact{
+  position: relative;
   background-image: url('../../assets/imgs/contact.jpg');
 }
 .form-container {
