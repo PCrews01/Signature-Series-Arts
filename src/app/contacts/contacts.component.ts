@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent implements OnInit {
+  title = 'Contact';
   loading = false;
   success = false;
 
@@ -36,10 +37,6 @@ export class ContactsComponent implements OnInit {
   smCols: number;
 
   screenSize = [ 'sz', 'xs', 'sm', 'md', 'lg', 'xl'];
-
-  phone: string;
-  isShowing = true;
-  seeMore = true;
 
   mMatch: MediaQueryList = matchMedia(`(max-width: ${ screen }px)`);
 

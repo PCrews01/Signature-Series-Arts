@@ -23,7 +23,7 @@ export class EventsComponent implements OnInit {
               private _oMedia: ObservableMedia,
               private _api: ApiService,
               private _route: Router) {
-    this.mMatch.addListener(m => _zone.run(() => this.mMatch = m));
+    this.mMatch.addListener(m => _zone.run(() => m));
     _oMedia.asObservable().subscribe((mChange: MediaChange) => {
           this.cols = this.screenSize.indexOf(mChange.mqAlias) ;
           this.rowHeight = (this.screenSize.indexOf(mChange.mqAlias) + 1 ) * 100;
