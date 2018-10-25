@@ -48,7 +48,7 @@ export class ContactsComponent implements OnInit {
               private _store: AngularFirestore,
               private _sanitation: DomSanitizer,
               private _router: Router) {
-    this.mMatch.addListener(m => _zone.run(() => this.mMatch = m));
+    this.mMatch.addListener(m => _zone.run(() => m));
     _oMedia.asObservable().subscribe((mChange: MediaChange) => {
           this.cols = this.screenSize.indexOf(mChange.mqAlias) ;
           if (this.cols > 3) { this.cols = 3; }

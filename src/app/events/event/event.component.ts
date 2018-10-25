@@ -33,7 +33,7 @@ export class EventComponent implements OnInit {
               private _zone: NgZone,
               private _oMedia: ObservableMedia,
               private _route: Router) {
-              this.mMatch.addListener(m => _zone.run(() => this.mMatch = m));
+              this.mMatch.addListener(m => _zone.run(() => m));
               _oMedia.asObservable().subscribe((mChange: MediaChange) => {
                 if (this.screenSize.indexOf(mChange.mqAlias) >= 3) {
                   this.flexStyle = 'auto';
