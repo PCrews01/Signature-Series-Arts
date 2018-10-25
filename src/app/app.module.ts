@@ -29,6 +29,7 @@ import 'hammerjs';
 import * as $ from 'jquery';
 import 'popper.js';
 import 'bootstrap';
+import { SafePipe } from './shared/pipes/safe.pipe';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,7 +50,8 @@ const routes: Routes = [
     ShowNamePipe,
     AcronymPipe,
     BeyondComponent,
-    EventComponent
+    EventComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

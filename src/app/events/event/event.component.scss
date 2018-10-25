@@ -19,3 +19,43 @@
   display: inline-flex;
   flex-wrap: wrap;
 }
+.event-back{
+  height: $fullWidth;
+  width: $fullWidth;
+}
+.event-data{
+  width: $halfWidth;
+  font-size: $xsFont;
+  min-height: 100vh;
+  background: rgba(0,0,0,0.95);
+  &::ng-deep.mat-card{
+    box-shadow: 1px 15px 30px 15px black;
+    padding: 2px;
+    background: black;
+    color: white;
+  }
+}
+.tile-header{
+  color: white;
+}
+.card-header{
+  width: 100%;
+  font-family: $mainFont;
+  font-size: $lgFont;
+  text-align: center;
+  text-transform: capitalize;
+}
+.event-performers{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: top;
+  box-shadow: 1px 15px 30px 15px black;
+}
+.flex{
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  min-height:275px;
+}

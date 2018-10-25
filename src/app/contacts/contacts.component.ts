@@ -5,7 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
- @Input('formControlName')
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -111,45 +111,47 @@ export class ContactsComponent implements OnInit {
     });
   }
   onSubmit(formName: string) {
-    this.loading = true;
-    if (formName === 'artist') {
-      const formData = this.artistForm.value;
-      try {
-        this._store.collection('Artist_Submissions').doc(this.artistForm.value.stage_name).set(formData);
-        this.success = true;
-        if (this.success = true) {
-          this._router.navigate([this._router.url]);
-          this.onReset();
+    if (this.artistForm.valid || this.generalForm.valid || this.sponsorForm.valid) {
+      this.loading = true;
+      if (formName === 'artist') {
+        const formData = this.artistForm.value;
+        try {
+          this._store.collection('Artist_Submissions').doc(this.artistForm.value.stage_name).set(formData);
+          this.success = true;
+          if (this.success = true) {
+            this._router.navigate([this._router.url]);
+            this.onReset();
+          }
+        } catch (err) {
+          console.log(`'There has been an error: ${err}`);
         }
-      } catch (err) {
-        console.log(`'There has been an error: ${err}`);
-      }
-    } else if (formName === 'sponsor') {
-      const formData = this.sponsorForm.value;
-      try {
-        this._store.collection('Sponsor_Submissions').doc(this.sponsorForm.value.company_name).set(formData);
-        this.success = true;
-        if (this.success = true) {
-          this._router.navigate([this._router.url]);
-          this.onReset();
+      } else if (formName === 'sponsor') {
+        const formData = this.sponsorForm.value;
+        try {
+          this._store.collection('Sponsor_Submissions').doc(this.sponsorForm.value.company_name).set(formData);
+          this.success = true;
+          if (this.success = true) {
+            this._router.navigate([this._router.url]);
+            this.onReset();
+          }
+        } catch (err) {
+          console.log(`'There has been an error: ${err}`);
         }
-      } catch (err) {
-        console.log(`'There has been an error: ${err}`);
-      }
-    } else if (formName === 'general') {
-      const formData = this.generalForm.value;
-      try {
-        this._store.collection('General_Messages').doc(this.generalForm.value.sender_name).set(formData);
-        this.success = true;
-        if (this.success = true) {
-          this._router.navigate([this._router.url]);
-          this.onReset();
+      } else if (formName === 'general') {
+        const formData = this.generalForm.value;
+        try {
+          this._store.collection('General_Messages').doc(this.generalForm.value.sender_name).set(formData);
+          this.success = true;
+          if (this.success = true) {
+            this._router.navigate([this._router.url]);
+            this.onReset();
+          }
+        } catch (err) {
+          console.log(`'There has been an error: ${err}`);
         }
-      } catch (err) {
-        console.log(`'There has been an error: ${err}`);
       }
-    }
     this.loading = false;
+    }
   }
   onReset() {
     this.artistForm.markAsPristine();

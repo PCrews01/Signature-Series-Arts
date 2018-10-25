@@ -6,7 +6,12 @@ body, html{
   background-color: $altColor;
   font-family: $secondaryFont;
 }
+.h-center{
 
+}
+.m-auto{
+  margin: auto;
+}
 .xs-cols{width: $fullWidth;}
 .sm-cols{width: $fullWidth}
 .md-cols{width: $halfWidth;}
@@ -43,6 +48,20 @@ body, html{
   font-size: 10vw;
   color: whitesmoke;
 }
+}
+.space-repeat{
+  background-repeat: space;
+  background-size: contain;
+}
+.bg-cover{
+  background-size: cover;
+  width: $fullWidth;
+  background-attachment: inherit;
+}
+.bg-contain{
+  background-size: $fullWidth;
+  width: $fullWidth;
+  background-attachment: inherit;
 }
 .btn{
   text-transform: uppercase;

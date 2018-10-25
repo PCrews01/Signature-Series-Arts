@@ -6,8 +6,8 @@ import { LowerCasePipe } from '@angular/common';
 })
 export class ShowNamePipe implements PipeTransform {
 
-  transform(value: any, showname: any): any {
-    showname = value.replace(RegExp(' ', 'g'), '_');
+  transform(value: string, showname: any): any {
+    showname = value.toString().replace(RegExp(' ', 'g'), '_');
     return showname;
   }
 

@@ -1,19 +1,50 @@
-<mat-grid-list cols="2">
-  <mat-grid-tile>
-    <img src="../../../assets/shows/{{ concert.name | showName | lowercase }}/images/flyer.jpg" class="event-image" />
-  </mat-grid-tile>
-  <mat-grid-tile class="data-tile" *ngIf="concert.category === 'ssa'" style="display:grid">
-    <h1 class="event-header">{{concert.name}}</h1>
-    <p style="width:100%">{{ concert.theme }}</p>
-    <p>{{ concert.production }}</p>
-    <div class="performer-cards">
-      <span class="performer-pics" *ngFor="let performer of concert.performers">
-        <img src="../../../assets/shows/{{concert.name | showName | lowercase}}/images/{{concert.name | acronym  }}-{{performer | showName | lowercase}}.jpg"
-        onError="this.src='../../../assets/imgs/no_image.png'" class="card-image">
-      </span>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile *ngIf="concert.category === 'promotion'">
-    <h1 class="event-header">{{ concert.name }}</h1>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="event-back fixed-back space-repeat"
+      [style.background-image]="flyersrc">
+  <div class="event-data m-auto" [style.width]="cardWidth">
+    <mat-card>
+      <mat-card-header>
+        <div *ngIf="concert" class="card-header">
+          {{ concert.name }}
+        </div>
+      </mat-card-header>
+      <img [src]="cardImage" mat-card-image alt="{{concert.name}}">
+      <mat-card-content>
+        <h3 class="header">Production</h3>
+        <div *ngIf="concert">
+          {{ concert.production }}
+        </div>
+        <h3 class="header">Performers</h3>
+        <div class="flex-container"
+              fxFlexFill
+              fxLayout="row wrap"
+              fxLayout.sm="column"
+              fxLayout.xs="column"
+              fxLayoutGap="13px"
+              fxLayoutAlign="center center"
+              style="position: relative; display: flex;height:300px; flex-direction: column;">
+          <div
+              [ngStyle]="{'height': flexStyle}"
+              fxFlex.xl="20"
+              fxFlex.lg="30"
+              fxFlex.md="100"
+              *ngFor="let a of performers; let i=index"
+              class="full-tile bg-cover flex-item">
+              <img  [src]="a"
+                    *ngIf="invalidPic === false"
+                    onError="!invalidPic"
+                    onError="this.src = '../../../assets/imgs/no_image.png'"
+                    style="width:inherit">
+            </div>
+        </div>
+        <h3 class="header">Post Production</h3>
+        <div>
+          {{ concert.postProduction }}
+        </div>
+        <h3 class="header">Sponsors</h3>
+        <li *ngFor="let sponsor of concert.sponsors">
+          {{ sponsor }}
+        </li>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
